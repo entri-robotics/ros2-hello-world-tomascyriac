@@ -1,6 +1,6 @@
-#include <chrono>
+#include <chrono> // Used for adding milliseconds to the timer
 #include <functional>
-#include <memory>
+#include <memory>//for shared pointer
 #include <string>
 
 #include "rclcpp/rclcpp.hpp"
@@ -16,16 +16,23 @@ using namespace std::chrono_literals;
  */
 
 class HelloNode : public rclcpp::Node
+//hello node is derived from rclcpp::Node, which means it inherits all the functionalities of a node.
 {
 public:
   HelloNode()
   : Node("hello_world_node")
   {
     // TODO: Initialize the timer here
+    timer_ = this->create_wall_timer( //calls the timer callback function every 1000ms
+      1000ms, std::bind(&HelloNode::timer_callback, this));
   }
 
 private:
   // TODO: Define the timer_callback function here
+  void timer_callback()
+  {
+    RCLCPP_INFO(this->get_logger(), "Hello, World!"); //Logger macro that prints "Hello, World!" to the console. this->get_logger() is used to get the logger associated with the node.
+  }
 
   rclcpp::TimerBase::SharedPtr timer_;
 };
