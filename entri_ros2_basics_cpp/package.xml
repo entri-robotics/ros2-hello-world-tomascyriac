@@ -3,11 +3,12 @@
   <name>entri_ros2_basics_cpp</name>
   <version>0.0.0</version>
   <description>Assignment: Basic Hello World Node</description>
-  <maintainer email="student@gmail.com">Student Name</maintainer>
+  <maintainer email="tomas.cyriac@gmail.com">Student Name</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <!-- missing dependency -->
+  <depend>rclcpp</depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
