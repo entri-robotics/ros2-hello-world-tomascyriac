@@ -6,7 +6,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake REQUIRED)git 
 find_package(rclcpp REQUIRED)
 
 # TODO: Add the executable target named 'hello_node'
@@ -16,8 +16,8 @@ add_executable(hello_node src/hello_node.cpp)
 ament_target_dependencies(hello_node rclcpp)
 # 3. Install the target to the DESTINATION lib/${PROJECT_NAME}
 install(TARGETS
-  hello_node //executable target
-  DESTINATION lib/${PROJECT_NAME}//destination for the executable target
+  hello_node /*executable target*/
+  DESTINATION lib/${PROJECT_NAME}/*destination for the executable target*/
 )
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
