@@ -1,4 +1,5 @@
-#include <chrono> // Used for adding milliseconds to the timer
+// Used for adding milliseconds to the timer
+#include <chrono> 
 #include <functional>
 #include <memory>//for shared pointer
 #include <string>
@@ -15,15 +16,16 @@ using namespace std::chrono_literals;
  * 3. The timer callback should print "Hello, World!" using the RCLCPP_INFO macro.
  */
 
-class HelloNode : public rclcpp::Node
 //hello node is derived from rclcpp::Node, which means it inherits all the functionalities of a node.
+class HelloNode : public rclcpp::Node
 {
 public:
   HelloNode()
   : Node("hello_world_node")
   {
     // TODO: Initialize the timer here
-    timer_ = this->create_wall_timer( //calls the timer callback function every 1000ms
+    //calls the timer callback function every 1000ms
+    timer_ = this->create_wall_timer(
       1000ms, std::bind(&HelloNode::timer_callback, this));
   }
 
